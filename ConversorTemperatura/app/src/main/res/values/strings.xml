@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ConversorTemperatura</string>
+    <string name="text_edittext">Temperatura em Fahrenheit</string>
+    <string name="text_button">CONVERTER PARA CELSIUS</string>
+    <string name="text_textview" />
+</resources>
