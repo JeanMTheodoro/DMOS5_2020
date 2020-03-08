@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button bntCelsius;
+    private Button bntCelsius, bntFahrenheit;
     private EditText editextTemperature;
     private TextView textView;
 
@@ -21,10 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         bntCelsius = findViewById(R.id.button_celsius);
+        bntFahrenheit = findViewById(R.id.button_fahrenheit);
         editextTemperature = findViewById(R.id.editText);
         textView = findViewById(R.id.textview);
 
         bntCelsius.setOnClickListener(this);
+        bntFahrenheit.setOnClickListener(this);
         editextTemperature.setOnClickListener(this);
     }
 
@@ -39,6 +41,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             clearTextview();
         }
+        else if(bntFahrenheit == v){
+
+            converterFahrenheit();
+        }
+
+    }
+
+    private void converterFahrenheit() {
+        double temperature;
+
+        try {
+
+            temperature = readInput();
+
+        }catch (NumberFormatException e){
+
+            temperature = 0;
+            showExeption();
+        }
+
+        textView.setText(String.format("%.2f °F",(1.8 * temperature) + 32));
 
     }
 
